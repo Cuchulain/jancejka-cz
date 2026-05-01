@@ -1,0 +1,14 @@
+services:
+  jancejka-cz:
+    image: ghcr.io/${GITHUB_REPOSITORY:-cuchulain/jancejka-cz}:latest
+    restart: unless-stopped
+    networks:
+      - frontend-proxy
+    labels:
+      caddy: jancejka.cz
+      caddy.reverse_proxy: "{{upstreams 80}}"
+      caddy.encode: gzip
+
+networks:
+  frontend-proxy:
+    external: true
