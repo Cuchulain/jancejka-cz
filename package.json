@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.2.4",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4.2.2"
   }
 }
