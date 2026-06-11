@@ -4,6 +4,8 @@ Jednostránkový rozcestník pro doménu [jancejka.cz](https://jancejka.cz) odka
 
 - **[saman.jancejka.cz](https://saman.jancejka.cz)** — Šamanismus & Léčení
 - **[dev.jancejka.cz](https://dev.jancejka.cz)** — Vývoj & Portfolio
+- **[vedome-uzdraveni.cz](https://vedome-uzdraveni.cz)** — Vědomé uzdravení
+- **[renomio.cz](https://renomio.cz)** — Renomio
 
 ## Stack
 
