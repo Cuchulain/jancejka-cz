@@ -8,7 +8,7 @@ export default defineConfig({
   integrations: [
     sitemap(),
     umami({
-        id: "94db1cb1-74f4-4a40-ad6c-962362670409",
+        id: "60c54488-7676-4718-a4ba-75a225062620",
         endpointUrl: "https://analytics.rebma.cz"
     })
 ],
