@@ -1,0 +1,176 @@
+---
+import '../styles/global.css';
+
+const title = 'AI průvodce Vědomým uzdravením | Jan Čejka';
+const description = 'Promluvte si v Telegramu s AI průvodcem, který vychází z knihy Magie Vědomého Uzdravení. Prvních 20 zpráv je zdarma.';
+const canonicalURL = 'https://jancejka.cz/vedome-uzdraveni';
+const botURL = 'https://t.me/uSkyCzBot?start=UZDRA20';
+---
+
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Jan Čejka" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="Jan Čejka" />
+    <meta property="og:locale" content="cs_CZ" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <script is:inline>
+      (function () {
+        const stored = sessionStorage.getItem('theme');
+        let isDark;
+        if (stored) {
+          isDark = stored === 'dark';
+        } else {
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+          const h = new Date().getHours();
+          isDark = prefersDark || (!prefersLight && (h < 6 || h >= 22));
+        }
+        if (isDark) document.documentElement.classList.add('dark');
+      })();
+    </script>
+
+    <script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "0be1538e61f64c6c871e1f032dd3b8a9"}'></script>
+  </head>
+
+  <body class="min-h-screen bg-stone-50 dark:bg-stone-950 text-stone-900 dark:text-stone-100 transition-colors duration-300">
+    <header class="w-full max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
+      <a href="/" class="text-sm font-medium text-stone-600 dark:text-stone-300 hover:text-sage dark:hover:text-sage transition-colors">
+        <span aria-hidden="true">←</span> Jan Čejka
+      </a>
+      <button
+        id="theme-toggle"
+        aria-label="Přepnout světlý/tmavý režim"
+        class="w-9 h-9 rounded-full flex items-center justify-center text-stone-500 dark:text-stone-400 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 block dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </header>
+
+    <main>
+      <section class="px-6 pt-14 pb-20 sm:pt-20 sm:pb-28">
+        <div class="max-w-3xl mx-auto text-center">
+          <div class="mx-auto mb-7 w-16 h-16 rounded-2xl flex items-center justify-center bg-sage/10 text-sage ring-1 ring-sage/20">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402C1 3.509 3.25 1 6.5 1c1.998 0 3.5 1 4.5 2 1-1 2.502-2 4.5-2C18.75 1 21 3.509 21 7.191c0 4.105-5.37 8.863-11 14.402z"/>
+            </svg>
+          </div>
+          <p class="text-sage font-semibold tracking-widest uppercase text-xs mb-4">Vědomé uzdravení</p>
+          <h1 class="text-4xl sm:text-6xl font-semibold tracking-tight leading-tight mb-7">
+            Promluvte si s AI průvodcem
+          </h1>
+          <p class="text-lg sm:text-xl text-stone-600 dark:text-stone-300 leading-relaxed max-w-2xl mx-auto mb-9">
+            BuddyPro vychází z obsahu knihy <em>Magie Vědomého Uzdravení</em> a pomůže vám
+            porozumět jejímu 21dennímu postupu, práci s tělem, energií, záměrem a vizualizací.
+          </p>
+          <a
+            href={botURL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 rounded-full bg-sage px-7 py-4 text-white font-semibold shadow-lg shadow-sage/20 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-sage/25 transition-all"
+          >
+            Otevřít průvodce v Telegramu
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <p class="mt-4 text-sm text-stone-500 dark:text-stone-400">
+            Prvních 20 zpráv zdarma · další si můžete kdykoli dokoupit
+          </p>
+        </div>
+      </section>
+
+      <section class="px-6 py-20 bg-white dark:bg-stone-900 border-y border-stone-200 dark:border-stone-800">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-14 md:gap-20">
+          <div>
+            <p class="text-sage font-semibold tracking-widest uppercase text-xs mb-3">Inspirace</p>
+            <h2 class="text-3xl font-semibold tracking-tight mb-6">Na co se můžete zeptat</h2>
+            <ul class="space-y-4 text-stone-600 dark:text-stone-300">
+              <li class="flex gap-3"><span class="text-sage" aria-hidden="true">●</span><span>Jak podle knihy nastartovat samočinné uzdravování těla?</span></li>
+              <li class="flex gap-3"><span class="text-sage" aria-hidden="true">●</span><span>Jak se svým tělem mluvit a jak naslouchat jeho odpovědím?</span></li>
+              <li class="flex gap-3"><span class="text-sage" aria-hidden="true">●</span><span>Jak probíhá meditace Strom života a k čemu v postupu slouží?</span></li>
+              <li class="flex gap-3"><span class="text-sage" aria-hidden="true">●</span><span>Jak při jednotlivých krocích pracovat s energií, záměrem a vizualizací?</span></li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="text-sage font-semibold tracking-widest uppercase text-xs mb-3">Jednoduše</p>
+            <h2 class="text-3xl font-semibold tracking-tight mb-6">Jak to funguje</h2>
+            <ol class="space-y-5">
+              <li class="flex gap-4">
+                <span class="flex-none w-8 h-8 rounded-full bg-sage/10 text-sage font-semibold flex items-center justify-center">1</span>
+                <p class="pt-1 text-stone-600 dark:text-stone-300">Otevřete chat v aplikaci Telegram.</p>
+              </li>
+              <li class="flex gap-4">
+                <span class="flex-none w-8 h-8 rounded-full bg-sage/10 text-sage font-semibold flex items-center justify-center">2</span>
+                <p class="pt-1 text-stone-600 dark:text-stone-300">Položte otázku ke knize nebo napište, kterou část postupu chcete lépe pochopit.</p>
+              </li>
+              <li class="flex gap-4">
+                <span class="flex-none w-8 h-8 rounded-full bg-sage/10 text-sage font-semibold flex items-center justify-center">3</span>
+                <p class="pt-1 text-stone-600 dark:text-stone-300">Prvních 20 zpráv využijte zdarma. Potom si můžete dokoupit další a v rozhovoru pokračovat.</p>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="px-6 py-20">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight mb-5">Začněte otázkou, která je pro vás právě důležitá</h2>
+          <p class="text-stone-600 dark:text-stone-300 mb-8">Rozhovor probíhá v Telegramu a vede jej AI, nikoli přímo Jan Čejka.</p>
+          <a
+            href={botURL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center rounded-full bg-sage px-7 py-4 text-white font-semibold shadow-lg shadow-sage/20 hover:-translate-y-0.5 transition-all"
+          >
+            Vyzkoušet 20 zpráv zdarma
+          </a>
+        </div>
+      </section>
+
+      <aside class="px-6 pb-20">
+        <div class="max-w-3xl mx-auto rounded-2xl border border-stone-200 dark:border-stone-800 bg-stone-100/70 dark:bg-stone-900 p-6 sm:p-8">
+          <h2 class="font-semibold mb-3">Důležité upozornění</h2>
+          <p class="text-sm leading-relaxed text-stone-600 dark:text-stone-400">
+            AI průvodce nabízí podněty k osobnímu zamyšlení, nenahrazuje lékaře, psychoterapeuta
+            ani odbornou diagnózu a může se mýlit. Při akutních nebo závažných obtížích vyhledejte
+            odbornou pomoc. Do chatu neposílejte údaje, podle kterých vás lze identifikovat.
+          </p>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="py-8 text-center text-stone-400 dark:text-stone-600 text-xs border-t border-stone-200 dark:border-stone-800">
+      &copy; {new Date().getFullYear()} Jan Čejka
+    </footer>
+
+    <script>
+      const toggle = document.getElementById('theme-toggle');
+      toggle?.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.toggle('dark');
+        sessionStorage.setItem('theme', isDark ? 'dark' : 'light');
+      });
+    </script>
+  </body>
+</html>
