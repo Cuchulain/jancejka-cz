@@ -5,6 +5,9 @@ import umami from '@yeskunall/astro-umami';
 export default defineConfig({
   output: 'static',
   site: 'https://jancejka.cz',
+  redirects: {
+    '/vedome-uzdraveni': 'https://vedome-uzdraveni.cz/mira',
+  },
   integrations: [
     sitemap(),
     umami({
